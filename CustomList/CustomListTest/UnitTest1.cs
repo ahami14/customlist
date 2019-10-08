@@ -7,14 +7,31 @@ namespace CustomListTest
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
-            // unit test for adding multiple items to check position of last item
-            // unit test for adding multiple items to check Count property
-            // unit test for adding number of items beyond 'Capacity' but it still adds
+        // unit test for adding multiple items to check position of last item
+        // unit test for adding multiple items to check Count property
+        // unit test for adding number of items beyond 'Capacity' but it still adds
 
+        [TestMethod]
+        public void Add_AddToFullCapacityList_ItemGoesToNewArray()
+        {
+            //arrange
+            MyList<int> testList = new MyList<int>();
+            int expected = 5;
+            int actual;
+
+            //act
+            testList.Add(15);
+            testList.Add(15);
+            testList.Add(15);
+            testList.Add(15);
+            testList.Add(15);
+            testList.Add(15);
+            actual = testList.Count;
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+            
         [TestMethod]
         public void Add_AddToEmptyList_ItemGoesToIndexZero()
         {
@@ -46,6 +63,41 @@ namespace CustomListTest
             // assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Add_AddItemToList_CheckCountOrder()
+        { 
+            //arrange
+            MyList<int> testList = new MyList<int>();
+            int expected = 3;
+            int actual;
+
+            //act
+            testList.Add(3);
+            actual = testList[0];
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Add_AddItemToList_PickItemAtLastIndex()
+        {
+            //arrange
+            MyList<int> testList = new MyList<int>();
+            int expected = 4;
+            int actual;
+
+            //act
+            testList.Add(5);
+            testList.Add(5);
+            testList.Add(5);
+            testList.Add(5);
+            testList.Add(5);
+            actual = testList[4];
+
+            //assert
+            Assert.AreEqual(expected, actual);        }
     }
     
 }
