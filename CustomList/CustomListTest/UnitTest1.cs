@@ -97,7 +97,8 @@ namespace CustomListTest
             actual = testList[4];
 
             //assert
-            Assert.AreEqual(expected, actual);        }
+            Assert.AreEqual(expected, actual);        
+        }
     }
     
 }
