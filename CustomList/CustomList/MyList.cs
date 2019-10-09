@@ -9,23 +9,32 @@ namespace CustomList
     public class MyList<T>
     {
         private T[] items;
-        new Array array;
+        List<T> testList;
+        
+        
 
         public MyList()
         {
             items = new T[4];
+            Capacity = 4;
+            Count = 0;
         }
 
-        public void Add(T itemToAdd)
+        
+        public int Capacity { get; set; }
+
+        public int Count { get; set; }
+
+        public void Add(T itemToAdd)//we have to do a count get set somewhere
         {   
-            foreach(Item item in items)//just get this in we'll figure it out
+            foreach(T item in items)//just get this in we'll figure it out
             {
                 Count++;
             }
 
-            if(items.Count > items.Capacity)
+            if(Count > Capacity)//no dot notation
             {
-                Array array = new array;
+                items = new T[Capacity * 2];//do something like the item in teh constructor above, but we need to double the capacity
             }
             //increase count for every item input
             //when count reaches capacity, create new array
