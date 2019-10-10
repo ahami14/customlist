@@ -9,35 +9,68 @@ namespace CustomList
     public class MyList<T>
     {
         private T[] items;
-        List<T> testList;
+        private int count;
         
-        
+       
 
         public MyList()
         {
             items = new T[4];
             Capacity = 4;
-            Count = 0;
+    }
+
+        public T this [int index]
+        {
+            get
+            {
+                if (index >= count)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                else
+                {
+                    return items[index];
+                }
+                // check if 'index' is valid
+                // throw an ArgumentOutOfRangeException
+
+            }
+            set
+            {
+                items[index] = value;
+            }
+        }
+        public int Capacity { get; set; }
+        public int Count { 
+            get 
+            {
+                return count;
+            }
         }
 
-        
-        public int Capacity { get; set; }
-
-        public int Count { get; set; }
-
         public void Add(T itemToAdd)//we have to do a count get set somewhere
-        {   
-            foreach(T item in items)//just get this in we'll figure it out
+        {
+            count++;
+
+            
+            if(Count == Capacity)
             {
-                Count++;
+                items = new T[Capacity *= 2];
             }
 
-            if(Count > Capacity)//no dot notation
+            items[0] = itemToAdd;//next is to write logic so you add to other indexes and not just the 0 one
+            for(int i = 0; i > items; i++)
             {
-                items = new T[Capacity * 2];//do something like the item in teh constructor above, but we need to double the capacity
+                items[0+1] = itemToAdd;
             }
             //increase count for every item input
             //when count reaches capacity, create new array
+            //add item to array
+        }
+
+        public void Remove(T itemToRemove)
+        {
+
         }
     }
 }

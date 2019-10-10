@@ -16,7 +16,7 @@ namespace CustomListTest
         {
             //arrange
             MyList<int> testList = new MyList<int>();
-            int expected = 5;
+            int expected = 8;
             int actual;
 
             //act
@@ -26,7 +26,7 @@ namespace CustomListTest
             testList.Add(15);
             testList.Add(15);
             testList.Add(15);
-            actual = testList.Count;
+            actual = testList.Capacity;
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -39,6 +39,7 @@ namespace CustomListTest
             MyList<int> testList = new MyList<int>();
             int expected = 12;
             int actual;
+            
 
             // act
             testList.Add(12);
@@ -53,11 +54,11 @@ namespace CustomListTest
         {
             // arrange
             MyList<int> testList = new MyList<int>();
-            int expected = 1;
+            int expected = 1 ;
             int actual;
 
             // act
-            testList.Add(234);
+            testList.Add(25);
             actual = testList.Count;
 
             // assert
@@ -85,7 +86,7 @@ namespace CustomListTest
         {
             //arrange
             MyList<int> testList = new MyList<int>();
-            int expected = 4;
+            int expected = 5;
             int actual;
 
             //act
@@ -93,8 +94,7 @@ namespace CustomListTest
             testList.Add(5);
             testList.Add(5);
             testList.Add(5);
-            testList.Add(5);
-            actual = testList[4];
+            actual = testList[3];
 
             //assert
             Assert.AreEqual(expected, actual);        
