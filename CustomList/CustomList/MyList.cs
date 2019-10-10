@@ -10,6 +10,8 @@ namespace CustomList
     {
         private T[] items;
         private int count;
+        public int index;
+        
         
        
 
@@ -50,7 +52,6 @@ namespace CustomList
 
         public void Add(T itemToAdd)//we have to do a count get set somewhere
         {
-            count++;
 
             
             if(Count == Capacity)
@@ -58,11 +59,10 @@ namespace CustomList
                 items = new T[Capacity *= 2];
             }
 
-            items[0] = itemToAdd;//next is to write logic so you add to other indexes and not just the 0 one
-            for(int i = 0; i > items; i++)
-            {
-                items[0+1] = itemToAdd;
-            }
+            //next is to write logic so you add to other indexes and not just the 0 one
+            items[count] = itemToAdd;
+
+            count++;
             //increase count for every item input
             //when count reaches capacity, create new array
             //add item to array
