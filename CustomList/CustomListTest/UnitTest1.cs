@@ -140,6 +140,66 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
 
         }
+        [TestMethod]
+        public void Remove_RemoveItemFromList_RemoveAtRange()
+        {
+            //arrange
+            MyList<int> testList = new MyList<int>();
+            int expected = 4;
+            int actual;
+
+            //act
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.Remove(3);
+            actual = testList[2];//should be 2 indexes
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+        public void Remove_RemoveItemFromList_CountDecrements()
+        {
+            //arrange
+            MyList<int> testList = new MyList<int>();
+            int expected = 4;
+            int actual;
+
+            //act
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.Remove(3);
+            actual = testList.Count;
+
+            //assert
+            Assert.AreEqual(expected, actual);
+
+        }
+        public void Remove_RemoveItemFromList_CapacityDecreases()
+        {
+            //arrange
+            MyList<int> testList = new MyList<int>();
+            int expected = 4;
+            int actual;
+
+            //act
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.Add(5);
+            testList.Add(6);
+            testList.Remove(3);
+            testList.Remove(4);
+            actual = testList.Capacity;
+
+            //assert
+            Assert.AreEqual(expected, actual);
+
+        }
     }
     
 }
