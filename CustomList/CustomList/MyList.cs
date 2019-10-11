@@ -10,16 +10,25 @@ namespace CustomList
     {
         private T[] items;
         private int count;
-        public int index;
-        
-        
-       
+        private T[] temp;
+
+
+        public int Capacity { get; set; }
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
+
 
         public MyList()
         {
             items = new T[4];
             Capacity = 4;
-    }
+            temp = new T[4];
+        }
 
         public T this [int index]
         {
@@ -33,8 +42,6 @@ namespace CustomList
                 {
                     return items[index];
                 }
-                // check if 'index' is valid
-                // throw an ArgumentOutOfRangeException
 
             }
             set
@@ -42,35 +49,44 @@ namespace CustomList
                 items[index] = value;
             }
         }
-        public int Capacity { get; set; }
-        public int Count { 
-            get 
-            {
-                return count;
-            }
-        }
 
-        public void Add(T itemToAdd)//we have to do a count get set somewhere
+        public void Add(T itemToAdd)
         {
-
-            
             if(Count == Capacity)
             {
                 items = new T[Capacity *= 2];
             }
 
-            //next is to write logic so you add to other indexes and not just the 0 one
             items[count] = itemToAdd;
 
             count++;
-            //increase count for every item input
-            //when count reaches capacity, create new array
-            //add item to array
         }
 
         public void Remove(T itemToRemove)
         {
+            //make a new temporary list to hold values you want, 2 counters to loop over
+            temp = new T[Capacity];
+            for (int i = 0, j = 0; i < count && j < count;)
+            {
+                if(!items[i].Equals(itemToRemove))
+                {
+                    //do not add to list or ignore number or skip number
+                    temp[j] = items[i];
+                    j++;
+                    i++;
+                }
+                else if (items[i].Equals(itemToRemove))
+                {
+                    i++;
+                    
+                }
+            }
+            items = temp;
+            
+            //temp[count-1] = itemToRemove;
 
+            count--;
+            //right now, we have a count decrement, but we are not removing anything, it's actually adding items
         }
     }
 }

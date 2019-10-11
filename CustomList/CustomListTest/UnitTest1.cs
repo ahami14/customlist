@@ -112,7 +112,7 @@ namespace CustomListTest
             //act
             testList.Add(5);
             testList.Add(4);
-            testList.Add(5);
+            testList.Add(6);
             testList.Remove(5);
             actual = testList[0];
 
