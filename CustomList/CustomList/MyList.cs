@@ -64,13 +64,13 @@ namespace CustomList
 
         public void Remove(T itemToRemove)
         {
-            //make a new temporary list to hold values you want, 2 counters to loop over
+            
             temp = new T[Capacity];
             for (int i = 0, j = 0; i < count && j < count;)
             {
                 if(!items[i].Equals(itemToRemove))
                 {
-                    //do not add to list or ignore number or skip number
+                    
                     temp[j] = items[i];
                     j++;
                     i++;
@@ -84,7 +84,7 @@ namespace CustomList
             items = temp;
 
             count--;
-            //right now, we have a count decrement, but we are not removing anything, it's actually adding items
+            
         }
         public override string ToString()
         {
