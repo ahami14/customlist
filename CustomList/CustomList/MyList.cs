@@ -82,11 +82,14 @@ namespace CustomList
                 }
             }
             items = temp;
-            
-            //temp[count-1] = itemToRemove;
 
             count--;
             //right now, we have a count decrement, but we are not removing anything, it's actually adding items
+        }
+        public override string ToString()
+        {
+        
+         return String.Concat (items[count]);
         }
     }
 }

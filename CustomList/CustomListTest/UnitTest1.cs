@@ -182,6 +182,27 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
 
         }
+
+        //ToString tests
+        [TestMethod]
+        public void Overriding_ToStringMethod()
+        {
+            //arrange
+            MyList<int> testList = new MyList<int>();
+            int expected = 1;
+            int actual;
+
+            //act
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.ToString();
+            
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
     
 }
